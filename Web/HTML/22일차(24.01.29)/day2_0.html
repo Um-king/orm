@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- <img src = "test.png" alt = ""> --> <!-- alt 속성은 값이 없더라도 "" 해당 값을 설정하는것이 좋다-->
+    <img src = "test.png" alt = "개발자가 줌을 켜고 엄지를 치켜세우고 있다"> <!--이미지는 inline 속성으로 baseline이 존재하여 이미지아래는 항상 공백이 존재하게 된다.-->
+    
+    <form>
+        <input type = "text" name="myName" value="영철" autocomplete="on">
+        <label>
+            아이디
+            <input type="text">
+        </label>
+        <!-- label 안에 제목요소를 배치 하지 말 것! -> h1 이런거 사용x -> form에 제목이 필요한 경우 fieldset legend 사용하기 -->
+
+        <input type="button" value = "초기화하기"> <!-- 이미 내용으로 무엇인지 나와있으니 label이 필요x-->
+
+        <button type = "submit">전송하기</button> <!--서버에 데이터 전송-->
+        <button type = "reset">초기화하기</button> <!--초기화기능-->
+
+        <input type = "text" required> <!--필수로 입력해야하는 값-->
+        <input type = "text" disabled> <!--비활성화-->
+        <input type = "text" readonly> <!--읽기 전용 -> 데이터가 입력되어있으면 서버로 전송은 된다.-->
+
+        <!--체크박스: 여러개의 요소 선택 가능-->
+        <fieldset>
+            <legend>사용 기술</legend>
+        
+            <input type="checkbox" name="html" id="html">
+            <label for="html">HTML</label>
+                  
+            <input type="checkbox" name="css" id="css">
+            <label for="css">CSS</label>
+            
+            <input type="checkbox" name="js" id="js">
+            <label for="js">JavaScript</label>
+            
+            <input type="checkbox" name="python" id="python">
+            <label for="python">Python</label>
+            
+            <input type="checkbox" name="django" id="django">
+            <label for="django">Django</label>
+        </fieldset>
+
+        <!--라디오 버튼: 단일 요소만 선택 가능 -> 하나만 활성화 가능 따라서 같은 카테고리 안에 존재하는 것임을 알려줘야함 따라서 같은 name값을 가짐-->
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" value="male" id="male"> <!--name은 gender로 name이 같은것끼리 묶인다.-->
+              <label for="male">남성</label> 
+          
+            <input type="radio" name="gender" value="females" id="female">
+              <label for="female">여성</label>
+            
+              <input type="radio" name="gender" value="no" id="no">
+              <label for="no">선택 안함</label>
+        </fieldset>
+
+        <!--select-->
+        <label for="animals">동물을 선택하세요: </label>
+        <select id="animals">
+        <optgroup label="포유류">
+            <option>원숭이</option>
+            <option>개</option>
+            <option>고양이</option>
+        </optgroup>
+        <optgroup label="파충류">
+            <option>도마뱀</option>
+            <option>뱀</option>
+        </optgroup>
+        </select>
+
+        <textarea 
+            rows="10" 
+            cols="50" 
+            minlength="10"
+            maxlength="100" 
+            placeholder="10자 이상 100자 이하로 내용을 입력해주세요"> <!--row=10: 열줄까지 보여줄 수 있다(그 이상은 스크롤), col=50: 한줄에 쓰일수 있는 문자의 개수는 50개 -->
+        </textarea> <!--col가 10이라고해서 꼭 10자만 작성되는것은 아님, 폰트가 지원하는 글자중에 평균적으로 10글자가 들어간다 이것임. i는 12자 ㅂ은 8글자 작성가능함 : 문자 표현 크기에 따라 다름-->
+
+    </form>
+</body>
+</html>

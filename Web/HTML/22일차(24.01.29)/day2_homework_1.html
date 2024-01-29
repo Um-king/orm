@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .colSecond{
+            width: 20%;
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <table> <!--tr:행 => 3줄의 행을 생성-->
+        <caption>테이블 제목</caption> <!--caption은 테이블의 첫번째 자식이어야한다. / 제목이나 설명을 의미-->
+        <colgroup><!--caption 다음에 위치, 테이블 열 그룹을 만들고 싶을 때 사용 -> 현재 열이 3개니깐 3개의 col을 생성-->
+            <!--테이블의 열 개수만큼 col 태그를 생성-->
+            <col> 
+            <col class="colSecond"> <!--하나의 열에 통째로 스타일을 지정하고 싶을때 사용 => 2번째 열 전체를 한번에 스타일 적용, 해당열에만 적용-->
+            <col>
+        </colgroup> 
+        <thead> <!--제목라인-->
+            <tr>
+                <th>월요일</th> <!--th:제목-->
+                <th>화요일</th> 
+                <th>수요일</th>
+            </tr>
+        </thead>
+        <tbody> <!--메인 글-->
+            <tr>
+                <td colspan="2">짜장면</td> <!--열 병합-->
+                <td rowspan="2">피자</td> <!--행 병합-->
+            </tr>
+            <tr>
+                <td>육계장</td>
+                <td>라면</td>
+                <!-- <td>짜장면</td> -->
+            </tr>
+        </tbody>
+        <tfoot> <!--바닥 글-->
+            <tr>
+                <td>맛있다</td>
+                <td>맛없다</td>
+                <td>보통이다</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <br>
+    <br>
+    <br>
+
+    <form>
+        <fieldset>
+            <legend>HTML 스터디가 망해가는 이유</legend>
+            <label>
+                노잼이다
+                <input type="radio" name="reasome">
+            </label>
+            <label>
+                너무 어렵다
+                <input type="radio" name="reasome">
+            </label>
+            <label>
+                주말에 뭐하는 짓이냐
+                <input type="radio" name="reasome">
+            </label>
+            <br>
+            <label for="">만약 다른 스터디를 하고 싶다면?</label>
+            <br>
+            <select name="lang">
+                <option value="javascript">자바스크립트</option>
+                <option value="python">파이썬</option>
+                <option value="java">자바</option>
+            </select>
+            <br>
+            <label for="lastWord">마지막으로 하고싶은 말</label>
+            <br>
+            <textarea name="lastWord" id="lastWord" cols="30" rows="2"></textarea>
+            <br>
+            <button type="submit">전송하기</button>
+            <button type="reset">다시 작성하기</button>
+        </fieldset>
+    </form>
+
+</body>
+</html>
