@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>선택자 우선순위 점수</title>
+    <style>
+        /* 클래스 + 유형 선택자 */
+        .ul a {
+            /* display: inline; 인라인 요소로 설정 -> 높이 등 설정 불가 */
+            /* display: block; 블록 요소로 설정 */
+            /* display: none; 브라우저가 인식하지 못하게 하겠다, 해당 요소를 화면에서 지워버리고 싶을 때 사용 */
+            color: yellow;
+        }
+
+        /* 클래스 선택자 */
+        .click {
+            color: green;
+            background: black;
+        }
+
+        /* 유형 선택자 */
+        html body main section article div ul li p strong span a {
+            background: purple;
+            color: blue;
+        }
+        /* 
+        !important 사용 시 우선순위의 중요성을 제외한다 -> 절대적인 우선순위를 가지게 된다. // 이 선언은 다른 CSS의 어떤 선언 보다도 우선합니다. 
+        하지만 잘 사용하지 않는다 -> 기존 자연스러움을 깨트리기 때문에 수정하기 어렵게 만들어서 사용하지 않는다. (최후의 수단..)
+
+        html body main section article div ul li p strong span a {
+        background: purple !important;
+        color: blue;
+        }
+        */
+    </style>
+</head>
+<body>
+    <main>
+		  <section>
+		    <article>
+		      <div>
+		        <ul class="ul">
+		          <li>
+		            <p>
+		              <strong>
+					    <span>
+	                    <a href="#" class="click">
+                        <!-- 
+                            분명 점수로는 순수하게 유형 선택자의 점수로만 반영되어야하는데 결과는 다름
+                            타입선택자가 아무리 모여서 100점 1000점이더라도 결국 클래스선택자를 넘을 수 없음
+                            즉 요소선택자가 모여서 12점이고 class 선택자가 10점이여도 요소선택자들끼리 모여서 100점이든 1000점이든 만들어도 10점인 class선택자를 넘을 순 없음 
+                        -->
+	                      1. 이 글자는 어떤 색일까요? <!--따라서 글자색이 노란색. 요소선택자가 모여서 12점이지만 class선택자 자체를 넘어설 수 없음 (태생이 다르다? 라고 생각하면 됨 선택자들마다 벽이 있어서 아무리 점수가 상위 선택자보다 높아도 넘어설 수 없음)-->
+	                      2. 배경색은 어떤 색일까요? <!--가중치의 점수가 클래스선택자 > 유형 선택자 가중치 법칙을 이 길수는 없습니다! 요소선택자들끼리모여도 결국엔 요소 선택자, 결국 클래스 선택자의 가중치가 높게 되어있으므로 클래스 선택자의 값이 표현된다-->
+	                    </a>
+	                  </span>
+		              </strong>
+		            </p>
+		          </li>
+		        </ul>
+		      </div>
+		    </article>
+		  </section>
+		</main>
+</body>
+</html>
+
+</body>
+</html>

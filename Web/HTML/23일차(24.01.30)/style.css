@@ -1,0 +1,65 @@
+div {
+    border: 1px solid red;
+}
+
+p {
+    border : inherit /* inherit: 부모의 값을 상속 받음*/
+}
+
+/* 
+* : 모든 요소에 해당 값을 적용하겠다. ==> 입맛대로하기위해서 한번밀어버리는 것 -> 최초 브라우저에 설정된 값을 초기화 하는것(공통으로 가져야할 때 초기화)
+* {
+	margin:0;
+	padding:0;
+} */
+
+/* id 지정 */
+#myDiv {
+    background-color: yellow;
+}
+
+/* class 지정 */
+.myP {
+    background-color: aquamarine;
+}
+
+
+/* class 오버라이딩 */
+.myP.myPMore { /* class를 연속으로 붙여 사용할 수 있다. 두가지 클래스를 모두 가지고 있다면 밑의 값처럼 설정하겠다.*/
+    border: 1px dotted blue;
+    background-color: beige;
+}
+
+/* 
+    만약 한 태그에 id랑 클래스값을 동일하게 주면 속성을 부여했을때 어떤게 더 우선시되나요?? 
+    =>id가 우선시 된다.
+    
+    <div id = "myDiv" class = "box-div"> 이런 식
+ */
+
+ /* 특성 선택자([]) : class중 btn의 모든 것들을 변경하겠다 -> class btn을 사용하는 모든 태그에 적용*/
+ [class="btn"]{
+	color:#fff;
+	background: royalblue;
+}
+
+/*
+class를 사용한 전체 컨트롤에 적용
+ [class]{
+	color:#fff;
+	background: royalblue;
+}
+*/
+
+/* :를 붙인건 가상클래스 사용, :link는 한번도 클릭되지 않은 링크들 */
+:link {
+    color : red
+}
+
+/* 
+    가상클래스 :hover 사용
+    마우스를 올렸을 때 반응하게 하는 것
+ */
+a:hover { /*요소 선택자에 적용 -> a태그에 :hover(마우스를 올렸을때) 동작을 적용*/
+    background-color: blue; /* 마우스를 a태그에 올리면 배경이 블루로 변경 -> 아주 많이 사용되는 가상클래스*/
+}

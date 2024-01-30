@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: lightgreen;
+        }
+
+        .one{
+            margin-bottom: 20px;
+            border: 1px solid black;
+            border-radius: 20px;
+        }
+
+        .two {
+            margin-top: 50px; 
+            background-color: royalblue;
+        }
+        .parent{
+            /* 자식의 높이가 부모의 값을 넘어갔을때 벗어난 만큼 숨길 수 있다. */
+            /* overflow: hidden;  */
+
+            /* 자식의 높이가 부모의 값을 넘어갔을때 스크롤로 컨트롤. */
+            /* overflow: scroll; */
+            opacity: 0.5;  /* 투명도 설정 */
+
+        }
+
+        .child {
+            height: 300px; 
+            margin-top: 50px; /* 따라서 부모 밖으로 여백이 50px만큼 발생 */
+            background-color: royalblue;
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        [마진병합 현상]
+        one의 마진값 20과 two의 마진값 50이라 두 요소의 여백차이가 70차이나야하는것처럼보이지만
+        여백과 여백이 만났을때 값이 더 큰 여백이 적용되어 두 요소간의 여백 차이는 더 큰값인 50만큼 여백이 존재한다.
+        
+        또한 부모 요소와 자식요소가 존재할때 자식 요소의 마진 탑 혹은 마진 바텀값이 부모의 높이에 영향을 미치지 않는 현상
+
+        부모의 높이는 자식 요소의 높이에 영향을 받음 하지만 자식이 여백공간을 늘렸더라도 부모의 높이에는 영향을 미치지 않는다. -> 부모 밖으로 여백공간이 생김
+        -> 부모의 높이가 변경될줄 알았는데 부모 밖으로 여백공간이 생김
+
+        왜 이런 현상이 일어나는가? -> 그 어디에도 아직 소개되지 않음
+        가설1: 요소들의 수직 마진을 이용한 레이아웃을 쉽게 설명하기 위해
+    -->
+    <div class="one"></div>
+    <div class="two"></div>
+
+    <div class="three">
+        <div class="four"></div>
+    </div>
+    
+</body>
+</html>
