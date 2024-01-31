@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            /* 이렇게 flex를 설정하면 ul은 flex container가 되고 자식들인 li는 flex item이 된다. */
+            /* 부모의 영역을 flex container, 자식들을 flex item */
+            /* 기본 값은 메인으로 가로로 향하게 되고(flex-dirction:row) 자식들이 가로를 기준으로 나열된다(주축이 가로, 교차축이 세로). flex-direction: column 설정 시 주축이 세로, 교차축이 가로 */
+            /* flex-direction는 flex 컨테이너에게 적용해야함 즉 부모에게 작성해야함 -> 자식한테 해도 영향이 없음 */
+            display: flex;
+            background-color: royalblue;
+            /* ul이 기본적으로 가지고 있는 padding 영역이 있어서 지움 */
+            padding: 0;
+
+            /* li 앞에 점이 붙는 것을 제외 시키는 것 */
+            list-style: none;
+        }
+        
+        li {
+            background-color: rosybrown;
+            border: 1px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- flex를 설정 -> flex 컨테이너 안에 flex 아이템들이 존재 -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>

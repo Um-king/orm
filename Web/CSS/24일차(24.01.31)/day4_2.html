@@ -1,0 +1,71 @@
+<!-- z-index: 요소가 겹쳐 있을때 어떤것을 먼저 보일 것인지 -->
+<!-- position을 통해 요소의 위치를 변경하다보면 요소와 요소가 겹쳐보이는 일이 발생합니다. 
+    이때 어떤 요소가 더 위로 나타나게 할지 결정할때 사용하는게 바로 z-index 속성입니다.  -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        div {
+            /* 같이 움직이는지 확인 */
+            /* margin: 100px; */
+            width: 800px;
+            height: 500px;
+            position: relative;
+            background-color: blanchedalmond;
+            border: 1px solid black;
+            /* 부모에 달아도 수정이 안됨 */
+            /* z-index: 1; */
+        }
+
+        img {
+            padding: 10px;
+            position: absolute;
+        }
+
+        .parent1 {
+            /* 이렇게 parent1에 z-index값을 설정하여 다음 요소보다 앞에 출력하게 하면 자식도 영향을 받음 */
+            z-index: 1 
+        }
+
+        .parent2 img:nth-child(1) {
+            top: 100px;
+            left: 100px;
+            background-color: red;
+            /* 자식에게 값을 주면 부모 뒤로 감 */
+            z-index: 1;
+        }
+
+        .parent2 img:nth-child(2) {
+            top: 150px;
+            left: 150px;
+            background-color: green;
+            z-index: 0;
+        }
+
+        .parent2 img:nth-child(3) {
+            top: 200px;
+            left: 200px;
+            background-color: blue;
+            z-index: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent1"> <!-- 만약 top값을 parent1의 크기보다 크게 한다면 parent2의 뒤로 넘어감 parent2가 parent1보다 늦게 만들었으니 가려짐
+    부모의 z-index에 따라서 자식들도 영향을 받는다!
+    따라서 parent1의 z-index를 설정하면 영향을 받지 않음 
+    parent1의 z-index를 1로 수정하면 parent2보다 앞에 출력되고 자식도 영향을 받음 
+    부모의 z-index에 영향을 받기 때문에 확인 필수! -->
+        <img src="https://via.placeholder.com/300" alt="" style="top:300px"> 
+    </div>
+    <div class="parent2">
+        <!-- z-index의 값이 큰 것부터 출력된다. 
+            zindex값이 같으면 요소가 만들어진 순서대로 배치됨 동일하면 나중에 작성된 요소를 출력(동일하면 만들어진대로)
+            zindex값이 높은 것 부터 출력
+        -->
+        <img src="https://via.placeholder.com/300" alt=""> 
+        <img src="https://via.placeholder.com/400" alt="">
+        <img src="https://via.placeholder.com/500" alt="">
+    </div>
+</body>
+</html>

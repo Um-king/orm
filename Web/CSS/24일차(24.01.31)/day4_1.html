@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <style>
+        section {
+            height: 1000px;
+            border: 3px solid black;
+        }
+
+        /* 스크롤을 내릴때마다 h2가 top 0의 위치에 고정되어있고 새로운 h2가 나타나면 새로운 h2의 내용이 top 0의 위치에 출력된다. (조상의 스크롤이 있고, 가장 가까운 부모의 컨텐츠 영역에 달라붙는다)*/
+        /* section 영역에 계속 달라 붙고 있는 것. */
+        /* 전자책 같은 스크롤을 내리면서 읽어야하는 컨텐츠에 새로운 목차일때마다 목차를 고정할 수 있을 것 같다는 생각이 든다. */
+        h2 {
+            position: -webkit-sticky; /* 밴더프리픽스.. 지금 알필요x.. */
+            position: sticky;  /* 조상에 스크롤이 있다면 가장 가까운 부모 요소의 영역에 달라붙는다. 부모의 부모의 부모에 누구든 스크롤이 있다면 가장 가까운(자기의 상위 요소) 부모에 달라 붙는다 */
+            top: 0px;
+            background: greenyellow;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>sticky test</h1>
+    <!-- section 자식으로 h2가 있고 +ul은 h2와 형제요소라는 것이며 그 자식으로 li가 있고 3번 반복하겠다 -->
+    <!-- (section>h2{오늘의 메뉴$}+ul>(li>lorem)*3)*3 입력 후 tab 누르면 자동으로 완성됨 너무 긴 코드를 작성할 때 이런식으로 작성하고 완성한다. 밑에 코드가 해당 식의 완성내용 -->
+
+    <section>
+        <h2>오늘의 메뉴1</h2>
+        <ul>
+            <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga maxime accusantium facilis, earum incidunt beatae consequatur, voluptatem veniam autem eos laborum, quidem aperiam inventore! Sapiente quisquam fuga beatae magnam laudantium?</li>
+            <li>Facilis debitis dicta natus ducimus quae est recusandae! Ipsam, animi et dolore cupiditate reprehenderit velit tempore quaerat, fugiat quidem ab omnis excepturi doloribus nesciunt esse minus repudiandae voluptatem incidunt ex.</li>
+            <li>Dolorem nemo eos esse? Distinctio, rerum et. Ullam, natus vel assumenda repellendus minima similique officia quisquam quod facilis, modi provident dolores eum minus, obcaecati itaque fugit corrupti labore temporibus. Doloremque.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>오늘의 메뉴2</h2>
+        <ul>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Hic error commodi temporibus magnam recusandae modi consectetur aliquam, repellat possimus, eligendi architecto laborum maxime quaerat reiciendis fugit sint magni suscipit cum!</li>
+            <li>Rerum maxime dolores deserunt, recusandae quo inventore accusamus provident, perspiciatis eligendi dolor, repellat tempore facilis in quos architecto molestiae optio autem adipisci animi ab repudiandae magnam iusto harum blanditiis. Fugiat?</li>
+            <li>Dicta sint officiis corrupti eius? Saepe, nulla! Unde laudantium adipisci exercitationem consequatur temporibus animi, voluptate necessitatibus expedita culpa repellat rerum iusto. Nulla itaque, quia illum provident sit fugit beatae accusantium.</li>
+        </ul>
+    </section>
+    <section>
+        <h2>오늘의 메뉴3</h2>
+        <ul>
+            <li>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cum veniam aperiam ipsa voluptatum accusamus molestiae, dicta numquam ipsam, iure iste nam voluptatibus, debitis quam vero est obcaecati dolorem reprehenderit asperiores!</li>
+            <li>Et earum distinctio dicta eos quisquam cupiditate laudantium nisi ratione vitae cumque vel officiis, ipsum soluta iusto incidunt quaerat, neque voluptate quia eligendi minus. Reiciendis aspernatur magnam odit minus nam.</li>
+            <li>Sequi quibusdam delectus magni tempora id consequatur repellat, ullam molestias perferendis unde doloremque, fuga, rem hic vitae saepe quos nulla magnam mollitia aliquam perspiciatis ut pariatur debitis commodi! Aliquid, eaque.</li>
+        </ul>
+    </section>
+</body>
+
+</html>

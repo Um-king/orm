@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>static</title>
+    <style>
+    .parent{
+        margin-top: 50px;
+    }
+    /* position은 요소와 요소사이에 상호작용이 안됨 즉 다른 형제요소와 상호작용이 필요하면 사용x (독자적으로 이동, 혼자 이동) */
+    .box1{
+        /* 원래 자기 자신의 위치를 기준으로 */
+        position:relative; /* 원래 자신의 위치에서 상대적으로 변경 가능 -> top, left, right, bottom 으로 위치 변경 */
+        /* 위에서 부터 얼마나 이동할 것인가 */
+        top: 50px;
+        /* 오른쪽에서 부터 얼마나 이동할 것인가 */
+        right: 50px;
+        /* 왼쪽에서 부터 얼마나 이동할 것인가 => right랑 같이쓰여 적용이 안됨 -> right와 left는 동시에 사용할 수 없다. right를 먼저 사용했으므로 left는 무시됨 */
+        left: 50px; 
+        /* 아래에서 부터 얼마나 이동할 것인가 => 현재 top이랑 같이쓰여서 적용이 안됨 -> top과 bottom을 동시에 사용할 수 없다 -> top이 먼저 사용되고 있으므로 bottom은 무시됨 */
+        bottom: 50px; 
+        /* 즉 역방향끼리는 동시에 사용할 수 없다. */
+
+        background-color: green;
+        color:white;
+        width: 100px;
+        height: 100px;
+    }
+
+    .box2{
+        position:static; /* 원래 자기자신의 위치를 고정, 자기 자신이 출력되는 위치를 고정*/
+        background-color: red;
+        color:white;
+        width: 100px;
+        height: 100px;
+    }
+
+    .box3{
+        /* 포지션속성을 가지고 static이 아닌 부모를 기준으로 */
+        position:absolute; /*부모의 포지션의 위치를 기준으로 작용되며 부모의 포지션이 static이 아니여야한다 부모요소에 포지션이 absolute가 없다면 루트요소(html)를 기준으로 한다.*/
+        background-color: blue;
+        color:white;
+        width: 100px;
+        height: 100px;
+    }
+    .box4{
+        position:absolute;
+        background-color: pink;
+        color:white;
+        width: 100px;
+        height: 100px;
+    }
+    .box5{
+        /* 사용자가 현재 보고 있는 화면을 기준으로 */
+        /*사용자가 보고있는 화면을 기준으로 위치를 잡음, 스크롤을 내렸을때도 스크롤로 인해 변경된 화면이 다시 기준이됨 bottom0이면 스크롤을 내리고 올려도 계속 아래에 붙어 있음 */
+        position:fixed; /* view port를 기준으로, 즉 화면을 기준으로 포지션이 정해진다. top이면 화면의 가장 위에서부터 시작하고 bottom이면 화면의 가장 아래에서 부터 이동 즉 화면의 위 아래 옆이 기준이 되어 이동 */
+        background-color: orange;
+        color:white;
+        width: 100px;
+        height: 100px;
+    }
+    </style>
+</head>
+<body>
+    <div class="box1">box1</div>
+    <div class="box2">box2</div>
+    <div class="parent">
+        <div class="box3">box3</div>
+        <div class="box4">box4</div> <!--box3이 box4에 가려짐-->
+    </div>
+</body>
+</html>
