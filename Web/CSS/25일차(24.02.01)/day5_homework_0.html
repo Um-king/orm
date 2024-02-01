@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .parent {
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            width: 400px;
+            height: 400px;
+            background-color: yellow;
+        }
+        .child {
+            /* flex를 자주사용하면 안좋은 점은 flex를 사용하려면 결국 컨테이너가 필요하다 그래서 계속해서 div를 만들게 된다. */
+            /* flex를 사용한 글자 정중앙 설정 */
+            /* display : flex;
+            justify-content : center; 주축 정렬 -> 수평 정렬
+            align-items : center; 교차축 정렬 -> 수직 정렬*/
+            width: 50px;
+            height: 50px;
+            background-color: royalblue;
+            color: white;
+            /* 글자 가운데 정렬 (수평, 수직 -> 정중앙), 수평은 text-align, 수직은 부모의 높이만큼 값을 설정하면 됨 */
+            text-align: center; /* 수평 */
+            line-height: 50px; /* 수직 */
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="child">
+            A
+        </div>
+    </div>
+</body>
+</html>

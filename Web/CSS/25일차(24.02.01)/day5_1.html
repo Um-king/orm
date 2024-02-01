@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            display: flex;
+            background-color: royalblue;
+            list-style: none;
+            padding: 0;
+            height: 400px;
+        }
+        
+        li {
+            height: 50px;
+            background-color: rosybrown;
+            border: 1px solid black;
+            
+            /* 자식요소 즉 flex-item 전부에게 똑같은 넓이를 주겠다. */
+            flex-grow: 1;
+
+        }
+
+        /* li의 3번째 자식을 선택한 것 */
+        /* nth-child(x) : x번째 자식 선택 */
+        li:nth-child(3) { 
+            /* 세번째 요소에 너비를 100으로 변경 -> 축에 방향에 따라 너비와 높이로 적용 */
+            /* 기본 컨턴츠의 너비/높이에 +100px를 적용한것 -> 컨텐츠 3333333333이라면 해당 컨텐츠의 너비 + 100px을 더함(유연성), width =100으로하면 완전고정한것 유연하지 못함 */
+            /* flex-basis: 100px; */
+            
+            /* flex-grow : 형제 요소인 아이템들이 모두 같은 flex-grow 값을 가지면, 내부에서 동일한 공간을 할당 */
+            /* 자식요소 하나에만 설정 시: 해당 자식요소의 flex-basis를 기준으로 너비를 지정 => 0보다 큰 값은 flex-item의 크기를 커질 수 있을때까지 커지게하겠다(부모가 가지고 있는 공간안에서 가장 크게 만들겠다.) */
+            /* 즉 자식요소 하나에서만 사용한다면 0보다 큰수는 부모의 여유공간 전부를 사용하겠다, 0은 flex-basis에 설정된 만큼만 넓히겠다. */
+            /* 0은 flex-basis까지만 설정, 1이되는순간 flex-basis보다 크게 하겠다. */
+            /* flex-grow: 1; */
+
+            /* 자식요소 즉 flex-item 전부에게 flex-grow를 설정해서 전부 동일하게 주고 특정 아이템에 다른 값을 설정하면 그만큼 더 큰 공간을 치지 */
+            flex-grow: 2; /* 2배만큼 더 큰 공간을 차지 */
+        }
+        
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+</body>
+</html>
