@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //slice 예시
+        const myArray = ["apple", "banana", "cherry", "durian", "elderberry"];
+        console.log(myArray.slice(1, 4));
+        console.log(myArray.slice());
+        console.log(myArray.slice(0, 10));
+
+        const nums = [3, 1, 8, 6];
+        console.log(nums.sort());
+
+        // 정렬이 이상하게 됨 -> 1000이 가장 먼저 정렬됨
+        // sort의 정렬 방식은 원소를 문자열로 전환 후 정렬된다!
+        const nums2 = [23, 5, 1000, 42];
+        console.log(nums2.sort());
+
+        // 숫자형 데이터 정렬의 이러한 단점을 해결하기 위해 비교 함수(compareFunction)를 사용할 수 있습니다.
+        const num3 = [13, 9, 10];
+
+        num3.sort(function (a, b) { // 콜백함수 사용
+            console.log('a: ' + a, 'b: ' + b);
+            return a - b;
+        });
+        /**
+        "a: 9"
+        "b: 13" // a - b는 음수임으로 a를 앞으로 => [9, 13, 10]
+        
+        "a: 10"
+        "b: 9" // a - b는 양수임으로 b를 앞으로 => [9, 13, 10]
+        
+        "a: 10"
+        "b: 13" // a - b는 음수임으로 a를 앞으로 => [9, 10, 13]
+        
+        "a: 10"
+        "b: 9" // a - b 는 양수임으로 b를 앞으로 => [9, 10, 13]
+        */
+
+
+        // forEach는 반환하는 값은 없고 순회하면서 어떠한 작업을 할 수 있도록 설정
+        const arr = ['참외', '키위', '감귤'];
+        arr.forEach(function (item, index) { // 콜백함수 사용 -> item에 배열의 원소가 하나씩 들어가고, index는 배열의 인덱스 번호도 사용되는것
+            console.log(item, index); // forEach가 순회하면서 배열 원소 값과 해당 원소의 인덱스 번호가 사용됨
+            arr[index] = index; // 첫번째 매개변수로 배열의 원소가 사용되고 두번째 매개변수로 원소의 인덱스가 사용됨 -> 규칙인듯 하나만 사용하면 원소값이 출력됨
+        });
+
+        const avengers = ['spiderman', 'ironman', 'hulk', 'thor'];
+        const newAvengers = [];
+        avengers.forEach(function (item) {
+            newAvengers.push('💖' + item + '💖');
+        });
+
+        // map은 새로운 배열을 반환한다
+        // foreach와 동작원리는 동일하지만 map은 실행결과를 새로운 배열로 반환한다.
+        // 완전히 동일한 작동을 하지만 map은 결과를 배열로 반환해줘서 map을 더 많이 사용한다. (return 필수)
+        const mapArr = [1, 2, 3];
+        const newArr = arr.map(function (item, index) {
+            return item * index;
+        }); // 결과 [0, 2 , 6ㅁ]
+
+        console.log(newArr);
+
+        const arr = [1, 2, 3]
+        const newArr = arr.map(item => item + 1) // map에 콜백함수를 사용한 예시 : item => item+1 이게 함수 내용
+        /*
+            하나의 매개변수를 사용하면 ()를 생략할 수 있고 function 키워드를 생각할 수 있으며 {} 대괄호를 생략할 수 있고 return 도 생략 가능
+        */
+
+        // 배열 안에 객체에서 데이터를 뽑는 형태로도 사용
+        const data = [
+            {
+                "_id": "642ba3980785cecff3f39a8d",
+                "index": 0,
+                "age": 28,
+                "eyeColor": "green",
+                "name": "Annette Middleton",
+                "gender": "female",
+                "company": "KINETICA"
+            },
+            {
+                "_id": "642ba398d0fed6e17f2f50c9",
+                "index": 1,
+                "age": 37,
+                "eyeColor": "green",
+                "name": "Kidd Roman",
+                "gender": "male",
+                "company": "AUSTECH"
+            },
+            {
+                "_id": "642ba39827d809511d00dd8d",
+                "index": 2,
+                "age": 39,
+                "eyeColor": "brown",
+                "name": "Best Ratliff",
+                "gender": "male",
+                "company": "PRISMATIC"
+            }
+        ];
+
+        const ages = data.map((item) => item.age);
+
+    </script>
+</body>
+
+</html>
