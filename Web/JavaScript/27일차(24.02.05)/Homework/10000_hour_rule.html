@@ -1,0 +1,351 @@
+<!-- 참고 https://paullab.co.kr/10000hours.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1만 시간의 법칙</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'GmarketSansMedium';
+            background-color: #5B2386;
+            color: white;
+        }
+
+        button {
+            background-color: #FCEE21;
+            color: #5B2386;
+            padding: 21px 49px;
+            border-radius: 56px;
+            border: none;
+            font-family: 'G마켓 산스 TTF';
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 24px;
+            cursor: pointer;
+        }
+
+        input::placeholder {
+            color: rgb(184, 188, 194);
+        }
+
+        .container {
+            position: relative;
+            /* 절대 위치인 자식을 위한 상대 위치 설정 */
+            width: 100%;
+            /* 컨테이너의 너비를 화면 너비와 동일하게 설정 */
+            height: 100%;
+            /* 컨테이너의 높이를 화면 높이와 동일하게 설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* 수평 중앙 정렬 */
+            justify-content: flex-start;
+            /* 상단에 정렬 */
+            margin-top: 70px;
+            /* 상단 여백 추가 */
+        }
+
+        .container_title {
+            position: relative;
+            /* 상대적 위치 설정 */
+            width: 600px;
+            /* 시간 이미지의 너비에 맞춰 설정 */
+            height: 265px;
+            /* 시계 이미지의 높이에 맞춰 설정 */
+            margin-bottom: 40px;
+        }
+
+        .clock_img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정확히 중앙 정렬 */
+            z-index: 1;
+            width: 261px;
+            height: 265px;
+        }
+
+        .hour_img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* 정확히 중앙 정렬 */
+            z-index: 2;
+            width: 564px;
+            height: 112px;
+        }
+
+        .container_txt {
+            margin-top: 20px;
+            /* 텍스트와 이미지 사이의 간격 조정 */
+        }
+
+        .saying_txt {
+            font-family: 'tvN 즐거운이야기';
+            /* tvN font download */
+            font-size: 36px;
+            font-weight: 700;
+            line-height: 40px;
+            color: #F5DF4D;
+            margin-bottom: 50px;
+        }
+
+        .container_quotes {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .container_quotes p {
+            font-family: 'G마켓 산스 TTF';
+            /* Gmart font download */
+            font-size: 18px;
+            font-weight: 400;
+            line-height: 1.7;
+
+            position: absolute;
+
+        }
+
+        .quotes_span_txt {
+            font-family: 'G마켓 산스 TTF';
+            font-size: 24px;
+            font-weight: 700;
+            line-height: 24px;
+        }
+
+        .quotes_img {
+            padding-top: 20px;
+        }
+
+        .input_txt {
+            font-family: 'G마켓 산스 TTF';
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            border-radius: 7px;
+            padding: 15px 20px;
+            margin: 0 9px;
+            width: 200px;
+            border: none;
+        }
+
+        .container_input {
+            margin-bottom: 70px;
+        }
+
+        .input_p_txt {
+            font-family: 'G마켓 산스 TTF';
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 24px;
+            display: inline-block;
+        }
+
+        .input_div {
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .container_btn {
+            margin-bottom: 80px;
+        }
+
+        .click_img {
+            position: relative;
+            right: -10px;
+            bottom: -40px;
+        }
+
+        .container_logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 50px;
+        }
+
+        .logo_p_txt {
+            font-family: "Noto Sans KR";
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 1.5;
+            padding: 10px 0;
+            text-align: center;
+            vertical-align: baseline;
+            margin: 20px;
+
+        }
+
+        #hiddenContent {
+            display: none;
+            padding: 10px;
+            color: white;
+        }
+
+        .container_hidden {
+            text-align: center;
+            font-family: 'G마켓 산스 TTF';
+            font-size: 24px;
+            font-weight: 400;
+            line-height: 100px;
+        }
+
+        .hidden_skill_txt {
+            font-size: 70px;
+        }
+
+        .hidden_btn {
+            margin-top: 70px;
+        }
+
+        .hidden_btn_white {
+            margin-top: 100px;
+            background-color: white;
+        }
+
+        #imageToRotate {
+            /* display: inline;
+            justify-content: center; */
+            transition: transform 2s;
+            text-align: center;
+            margin-bottom: 70px;
+            display: none;
+        }
+
+        img.infinite_rotating_logo {
+            /* 2s -> 숫자가 작을 수록 빠르게 회전, linear: 속도 동일하게, infinite: 무한 */
+            animation: rotate_image 2s linear infinite;
+            transform-origin: 50% 50%; /* 회전의 중심 위치 표현 : 완전 원형으로 회전 시 이미지의 중앙에서 회전시켜야함 */
+            width: 129px;
+            height: 129px;
+        }
+
+        /* rotate_image: animation 속성에서 사용하기 위해 설정 */
+        @keyframes rotate_image {
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="container">
+        <div class="container_title">
+            <!-- <img src="Frame 12.png" alt="시계" class="clock_img"> -->
+            <!-- <img src="Frame.png" alt="1만 시간의 법칙" class="hour_img"> -->
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2F5ace0f7713f54eb281ee8349e8ae3ac1" alt="시계" class="clock_img">
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2Fedd7fa6beaa745f9b074599a94445b2f" alt="1만 시간의 법칙" class="hour_img">
+        </div>
+        <div class="container_txt">
+            <p class="saying_txt">"연습은 어제의 당신보다 당신을 더 낫게 만든다."</p>
+        </div>
+        <div class="container_quotes">
+            <!-- <img src="quotes.png" alt="따움표" class="quotes_img"> -->
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2F85ea4ce5a6f4491188c02743cd55e8eb" alt="따움표" class="quotes_img">
+            <p><span class="quotes_span_txt">1만 시간의 법칙</span>은 <br>
+                어떤 분야의 전문가가 되기 위해서는<br>
+                최소한 1만 시간의 훈련이 필요하다는 법칙이다.</p>
+        </div>
+        <div class="container_input">
+            <div class="input_div">
+                <p class="input_p_txt">나는 </p>
+                <input type="text" placeholder="예)프로그래밍" class="input_txt" id="input_skill">
+                <p class="input_p_txt"> 전문가가 될 것이다.</p>
+            </div>
+            <div class="input_div">
+                <p class="input_p_txt">그래서 앞으로 매일 하루에 </p>
+                <input type="number" placeholder="예)5" class="input_txt" id="input_hour">
+                <p class="input_p_txt"> 시간씩 훈련할 것이다.</p>
+            </div>
+        </div>
+        <div class="container_btn">
+            <button id="showButton">나는 며칠 동안 훈련을 해야 1만 시간이 될까?</button>
+            <!-- <img src="Frame 11.png" alt="클릭" class="click_img"> -->
+            <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2Fa545f082e3644e48833625947960c241" alt="클릭" class="click_img">
+        </div>
+    </section>
+    <section class="container_hidden">
+        <div id="hiddenContent">
+            <p class="input_p_txt">당신은 &nbsp;&nbsp;<span class="hidden_skill_txt" id="hidden_skill"></span>
+                &nbsp;&nbsp;전문가가 되기 위해서</p>
+            <br>
+            <p class="input_p_txt">대략 &nbsp;&nbsp;<span class="hidden_skill_txt" id="hidden_hour"></span> &nbsp;&nbsp;일
+                이상 훈련하셔야 합니다! :)</p>
+            <br>
+            <button class="hidden_btn">훈련하러 가기 GO!GO!</button> &nbsp; <button class="hidden_btn_white">공유하기</button>
+        </div>
+    </section>
+    <section id="imageToRotate">
+        <!-- <img src="rotate_click.png" alt="로딩중" class="infinite_rotating_logo"> -->
+        <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2Fc9c683585f9240bfb9a86390680f8822" alt="로딩중" class="infinite_rotating_logo">
+    </section>
+    <section class="container_logo">
+        <!-- <img src="weniv.png" alt="logo"> -->
+        <img src="https://cdn.builder.io/api/v1/image/assets%2F253795ae855443f2bcf20ffa08f40a29%2F5c3d1f2f1fe44ebcb438e787ccbe2062" alt="logo">
+        <p class="logo_p_txt">※ 본 서비스 내 이미지 및 콘텐츠의 저작권은 주식회사 WeNiv에 있습니다.
+            <br>수정 및 재배포, 무단 도용 시 법적인 문제가 발생할 수 있습니다.
+        </p>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            let hiddenContent = document.getElementById("hiddenContent");
+            hiddenContent.style.display = "none"; // 초기 상태를 숨김으로 설정
+
+            document.getElementById("showButton").onclick = function () {
+                let skill = document.getElementById("input_skill").value
+                let hour = document.getElementById("input_hour").value
+                let image = document.getElementById('imageToRotate');
+
+                hiddenContent.style.display = "none";
+
+                if (!skill || !hour) {
+                    alert("입력되지 않았습니다.");
+                    return;
+                }
+
+                image.style.display = "block";
+                image.style.marginBottom = "100px"
+
+                setTimeout(function () {
+                    image.style.display = 'none';
+
+                    if (hiddenContent.style.display === "none") {
+                        hiddenContent.style.display = "block";
+                        hiddenContent.style.marginBottom = '100px';
+                    }
+                    // else {
+                    //     hiddenContent.style.display = "none";
+                    //     hiddenContent.style.marginBottom = '0px';
+                    // }
+
+                    let output_skill = document.getElementById("hidden_skill")
+                    let output_hour = document.getElementById("hidden_hour")
+
+                    output_skill.textContent = skill;
+                    output_skill.style.fontWeight = 700;
+
+                    output_hour.textContent = Math.round(10000 / hour);
+                    output_hour.style.fontWeight = 700;
+                }, 2000);
+            };
+
+
+        });
+    </script>
+</body>
+
+</html>

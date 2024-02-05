@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        // 1. includes : 해당 값을 포함하고 있는지
+        const arr1 = ['hello', 'world', 'hojun']
+        arr1.includes('world')
+
+        const arr2 = ['hello', 'world', 'hojun']
+        arr1.includes('leehojun')
+
+        const arr3 = ['hello', 'world', 'hojun']
+        arr1.includes('jun')
+
+        // 객체의 형태 -> 객체 생성
+        const babaYaga = {
+            name: "John Wick",
+            age: 53,
+            from: "벨라루스",
+            askingHim: function () { // function키워드는 생략 가능
+                console.log("Yeah, I'm thinking I'm back!");
+            }
+        };
+
+        // 객체 호출 방법
+        console.log(`${babaYaga.name} from ${babaYaga.from}`);
+        console.log(`${babaYaga['name']} from ${babaYaga['from']}`);
+
+        // 객체에 속성을 추가하기 위해서는 객체 이름 뒤에 점(.)과 새로운 속성 이름을 입력하고, 새로운 값을 할당
+        babaYaga.job = "Killer";
+
+        // 속성 삭제
+        delete babaYaga.job;
+
+        // 객체에 속성이 존재하는지 확인(in 키워드)
+        console.log('age' in babaYaga);
+        console.log('mercy' in babaYaga);
+
+        // hasOwnProperty() : 특정 프로퍼티를 가지고 있는지 불리안 값으로 반환
+        const aespa = {
+            members: ['카리나', '윈터', '지젤', '닝닝'],
+            from: '광야',
+            sing: function () {
+                return "적대적인 고난과 슬픔은 널 더 popping 진화시켜!"
+            }
+        };
+
+        console.log(aespa.hasOwnProperty('itzy'));
+        console.log(aespa.hasOwnProperty('from'));
+
+        // 객체의 반복을 위해 만들어진 기능 -> 주로 객체 안의 프로퍼티들에 접근하여 어떠한 키와 값을 가지는지 살펴보고 싶거나, 조건에 따라 값을 수정해야 할 경우 사용
+        // in 앞의 값에는 매번 반복마다 다른 속성이름(Value name)이 변수(variable)로 지정
+        // 가장 중요한건 for..in 문 안에서 처리되는 프로퍼티들은 반드시 순서대로 반복하지 않는다. 순서가 중요하다면 일반적인 반복문을 사용해야함
+        // 출력할때마다 순서가 다름
+        const person = {
+            name: '재현',
+            age: 20,
+            gender: 'male'
+        };
+
+        for (let key in person) {
+            console.log(`${key}: ${person[key]}`);
+        }
+
+        // Object.keys() 메소드는 객체의 속성 이름(key)들을, Object.values() 메소드는 객체의 속성 값(value)들을 배열로 반환
+        // 순서대로 반환하지 않음
+        console.log(Object.keys(aespa));
+        console.log(Object.values(aespa));
+        */
+
+        // 해당 함수의 this는 window 즉 브라우저를 가리킨다. -> a라는 함수를 호출한 객체를 가리키고 있다
+        function a() { console.log(this) }
+        a();
+
+        // 어떤 객체의 메소드가 아닌 단독 호출되는 함수의 this는 전역공간을 참조하게됩니다. -> window
+
+        // this는 myObj를 가리킨다 -> func1이라는 함수를 호출한 객체를 가리킨다.   /// 위와 현재 코드의 this가 다르다 즉 this는 본인을 호출한 객체를 가리킴
+        let myObj = {
+            val1: 100,
+            func1: function () {
+                console.log(this);
+            }
+        }
+
+        myObj.func1();
+
+        // this는 window를 가리킴 -> myObj의 this의 대상이 바뀜 -> 결국 test라는 객체가 func1을 바라보고 있는데 test() 함수를 호출하는 객체는 결국 window 객체라는 것
+        // 전역공간에 함수를 바로 등록했을때 a()라는 함수를 보면 알 수 있었고 test() 호출되는 공간은 전역공간 -> window 객체
+        // 호이스팅 현상을 일으키는 것들은 window 객체 즉 전역공간에 등록됨
+        let test = myObj.func1;
+        test()
+    </script>
+
+</body>
+
+</html>

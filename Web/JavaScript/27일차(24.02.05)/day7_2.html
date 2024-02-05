@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 이처럼 객체와 객체가 서로 메소드를 통해 상호작용하게 하는것이 바로 **객체지향 프로그래밍**이라고 할 수 있습니다.
+        // const me = {
+        //     name: '한재현',
+        //     address: '제주도 제주시 인다 1길',
+        //     phoneNum: '010-8000-0000',
+        //     canWalk: function () {
+        //         console.log('재현이가 걷는다.');
+        //     },
+        //     teaching: function (student) {
+        //         student.levelUp(); // 여기서의 this는 student의 객체, 객체 자체가 매개변수로 사용되었고 해당 객체의 상태값을 변경함
+        //     }
+        // }
+
+        // const student = {
+        //     level: 1,
+        //     levelUp: function () {
+        //         this.level++;
+        //     }
+        // }
+
+        // me.teaching(student) // 각 객체들의 상호작용을 보여줌 -> 객체를 아규먼트로 사용하여 다른 객체의 함수에서 본인의 상태를 변경
+
+
+        // 상호작용 실습
+        const me = {
+            name: '엄영철',
+            canStudy: function (book) {
+                book.levelUp()
+            }
+        }
+
+        const book = {
+            knowledge: 0,
+            levelUp: function () {
+                this.knowledge++;
+            }
+        }
+
+        me.canStudy(book)
+
+
+        // 생성자 실습 
+        function Factory() {
+
+        }
+
+        // 생성자는 return이란 키워드가 필요없음 -> 함수에 return이 없다면 undefined를 출력하지만 생성자는 new를 통해 자동으로 객체를 생성하고 반환한다.
+        // 이렇게 반환되어 만들어진 객체를 다른 말로 인스턴스(instance) 라고 합니다.
+        const myFactory = new Factory() // 생성자를 만들면 해당 생성자로 만들어진 인스턴스들은 속성과 메서드를 공용으로 사용할 수 있는 장점이 있다.
+
+
+        // 생성자 실습2
+        function NewFactory(name) {
+            this.name = name;
+            this.sayYourName = function () {
+                console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+            }
+        }
+
+        let robot1 = new NewFactory('브랜든');
+
+        //  인스턴스의 __proto__와 함수의 prototype 연결되어있는지 확인하는 코드
+        // __proto__는 인스턴스에만 존재하고 prototype은 함수에만 존재
+        // 생성자를 만들때 함수가 계속 만들어지면 메모리공간을 낭비하게된다 -> 따라서 프로토타입은 모든 인스턴스가 하나의 메서드를 공유하도록 만들어 자원을 더 효율적으로 사용하도록 도와준다.
+        // 해당 구문을 사용하여 생성자로 만들어진 객체가 각각의 함수를 만들지 않고 하나의 함수가 정의된 메모리를 가리키게 된다 
+        function Test() { };
+        const obj = new Test();
+        obj.__proto__ === Test.prototype // 인스턴스의 __proto__와 함수의 prototype이 같으냐 => true 즉 같은 주소값을 가진다.
+
+        // 프로토타입 사용
+        function NewFactory2(name) {
+            this.name = name;
+        }
+
+        // 프로토타입을 통해 함수를 정의
+        NewFactory2.prototype.sayYourName = function () {
+            console.log(`삐리비리. 제 이름은 ${this.name}입니다. 주인님.`);
+        }
+
+        const root1 = new NewFactory2('브랜드')
+        const root2 = new NewFactory2('재현') // 생성자 내에는 함수를 정의하지 않았지만 서로 다른 인스턴스가 같은 함수를 사용
+        root1.sayYourName === root2.sayYourName // 같은 함수인가? => true 즉 NewFactory2의 함수를 프로토타입을 사용하여 정의했고 해당 생성자로 만들어진 객체들은 하나의 메모리에 정의된 함수를 가리키고 사용한다.
+
+
+        // 생성자 실습
+        function Me(name) {
+            this.name = name;
+        }
+
+        Me.prototype.canWalk = function () {
+            console.log(`${this.name}는/은 걷는다.`)
+        }
+
+        Me.prototype.doingStudy = function (book) {
+            book.levelUp();
+        }
+
+        const people1 = new Me('영철');
+        const people2 = new Me('호준');
+        people1.canWalk();
+        people1.canWalk === people2.canWalk;
+
+        people1.doingStudy(book)
+
+
+        // 상속 예제 
+        function Parent() {
+            this.name = '재현';
+        }
+        Parent.prototype.rename = function (name) {
+            this.name = name;
+        }
+        Parent.prototype.sayName = function () {
+            console.log(this.name);
+        }
+
+        function Child() {
+            Parent.call(this);
+        }
+
+        Child.prototype = Object.create(Parent.prototype); // 지정된 프로토타입 객체를 갖는 새 객체를 만듭니다.
+
+
+        Child.prototype.canWalk = function () {
+            console.log('now i can walk!!');
+        }
+
+        const child = new Child() // 부모의 name 속성과 메서드를 사용할 수 있다. -> 상속
+    </script>
+</body>
+
+</html>
