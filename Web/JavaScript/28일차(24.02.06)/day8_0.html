@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="myTxt"></p>
+    <p class="myTxt2"></p>
+    <p class="myTxt2"></p>
+
+    <button>HELLO!</button>
+
+    <script>
+        // 해당하는 Id를 가진 요소에 접근하기
+        document.getElementById("myTxt");
+
+        // 해당하는 모든 요소에 접근하기 -> p태그 전부를 찾음
+        document.getElementsByTagName('p');
+
+        // 해당하는 클래스를 가진 모든 요소에 접근하기 -> myTxt2라는 클래스를 사용하는 요소를 전부 검색 -> Elements를 보면 s가 붙어있음 -> 전부를 찾는것
+        document.getElementsByClassName('myTxt2');
+
+        // 요즘은 이런 방식으로 검색함
+        // css selector에 선택자들이 입력된다. -> document.querySelector("selector");
+        document.querySelector(".myTxt2"); // css의 작성된 문법 그대로를 입력하는것 / 위에서는 html에 사용된 id명이나 class명으로 검색하는건데 querySelector는 css문법 그대로 작성된 이름을 그대로 사용해서 검색
+        // 요즘은 querySelector 방식을 사용
+
+        // 만약 .myTxt2 클래스를 여러개 사용하고 있다면 가장 첫번째 요소만 반환 -> 가장 첫번째로 발견되는 요소만 출력
+        document.querySelector('.myTxt2');
+
+        // .myTxt2 클래스를 사용하고 있는 요소 전부를 반환
+        document.querySelectorAll('.myTxt2');
+
+        // 첫번째: 이벤트의 타입, 두번째: 함수 -> 이벤트 타입의 종류에 따라 해당 이벤트의 타입이 적용되었을 때 해당 함수를 실행해라
+        // 버튼에 클릭이 발생했을 때 함수를 실행
+        // 이벤트의 타입에는 click, mouseover, mouseout, wheel 등 다양한 이벤트를 감지합니다.
+        // listener 함수의 인수에는 이벤트에 대한 정보가 담겨있습니다.
+        const myBtn = document.querySelector("button"); // button 요소 중 첫번째 발견되는 버튼 요소를 호출
+
+        myBtn.addEventListener('click', function () { // 클릭이라는 이벤트 타입과 어떤 실행을 할지 작성, 클릭 발생 시 문자열 출력
+            console.log("hello world");
+        })
+
+        // 요소의 class 속성을 제어할 수 있습니다. -> 해당 요소에 class를 추가하고 삭제할 수 있다. -> css로 생성한 class를 해당 요소에 붙이는것 
+        const myBtn2 = document.querySelector("button");
+        myBtn.addEventListener('click', function () {
+
+            // blue 라는 클래스의 속성 값을 지정 할 수 있습니다.
+            // 클릭 이벤트가 발생했을 때 해당 버튼 요소에 blue라는 class를 추가 -> 개발자 도구를 보면 button 요소에 없던 class='blue'가 추가됨
+            myBtn.classList.add("blue");
+
+            // myBtn.classList.remove("blue");     클래스를 제거합니다.
+            // myBtn.classList.toggle("blue");     클래스를 토글합니다. 없으면 넣어주고, 있으면 제거합니다. -> 아주 유용!!!
+            // myBtn.classList.contains("blue");   해당하는 클래스가 있는지 확인합니다.
+        })
+    </script>
+</body>
+
+</html>

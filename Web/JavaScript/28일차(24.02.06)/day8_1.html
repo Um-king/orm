@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 주석입니다 주석. -->
+    <article class="cont">
+        <h1>안녕하세요 저는 이런 사람입니다.</h1>
+        <p>지금부터 자기소개 올리겠습니다</p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt incidunt voluptates laudantium fugit, omnis
+        dolore itaque esse exercitationem quam culpa praesentium, quisquam repudiandae aut. Molestias qui quas ea iure
+        officiis.
+        <strong>감사합니다!</strong>
+    </article>
+
+
+    <strong class="sayHi">
+        반갑습니다.
+    </strong>
+
+    <p></p>
+    <input type="text">
+    <button>Write Something!</button>
+
+    <div id="parentElement">
+        <span id="childElement">hello guys~</span>
+    </div>
+
+
+    <div class="parenet"></div>
+    <p class="child"></p>
+
+    <ul></ul>
+    <button>Make me MORE!</button>
+
+    <!-- script를 밑에 두는 이유는 위에다가 script를 선언시 태그를 찾지 못해서 html과 상호작용을 하지 않는 자바스크립트를 가져올 경우에는 head에 포함해도 된다. -->
+    <!-- 자바스크립트는 위에서 부터 읽기 떄문에 태그를 불러오고 하는 과정에서 html의 태그가 먼저 선언되어야하고 그렇지 않으면 찾지를 못해서 Error -->
+    <script>
+        // const myP = document.querySelector('.child');
+
+        // // 메소드 체이닝
+        // document.querySelector('.parent').append(myP); // div안에 p태그를 넣는다.
+        // myP.append(document.createTextNode('hello world')); // p태그 안에 텍스트 추가
+
+        // document.querySelector('.parent').append(myP, myText, 'hello!!'); // 이렇게 여러개의 요소를 한번에 축가 할 수 있다. -> 여러개의 요소를 한번에 추가
+
+
+
+
+        // const myBtn = document.querySelector("button");
+        // const myUl = document.querySelector("ul");
+        // // 버튼 클릭시 ul 자식으로 li 요소를 반복횟수만큼 생성
+        // myBtn.addEventListener('click', function () {
+        //     for (let i = 0; i < 5; i++) {
+        //         const myLi = document.createElement('li'); // li 자식 요소 생성
+        //         myUl.appendChild(myLi);
+        //     }
+        // })
+
+
+
+
+        // // 버튼 클릭 시 li를 생성하고 li요소에 새로운 버튼을 추가한 후 해당 버튼을 선택 시 li 삭제, li를 ul의 자식요소로 추가
+        // const myBtn = document.querySelector("button");
+        // const myUl = document.querySelector("ul");
+
+        // myBtn.addEventListener('click', function () {
+        //     for (let i = 0; i < 5; i++) {
+        //         const myLi = document.createElement('li'); // li 요소 생성  
+        //         const btnDel = document.createElement('button'); // 버튼 요소 생성
+        //         const btnTxt = document.createTextNode('버튼'); // 텍스트 생성
+
+        //         btnDel.append(btnTxt); // 버튼에 텍스트 추가
+        //         btnDel.addEventListener('click', () => {
+        //             myLi.remove(); // 버튼 클릭 시 li 요소 제거
+        //         });
+        //         myLi.append('삭제하기: ', btnDel); // li에 삭제하기 텍스트와 버튼 추가
+        //         myUl.appendChild(myLi); // ul에 자식 요소로 li 추가
+        //     }
+        // });
+
+        // // insertBefore() : 어떤 특정 위치전에 추가해라. 첫번째 인자는 추가할 값, 두번째 인자는 배치할 위치
+        // // parentElement.insertBefore(target, location); target요소를 parentElement의 자식인 location 위치 앞으로 이동합니다.
+        // var span = document.createElement("span");
+        // var sibling = document.getElementById("childElement");
+        // var parentDiv = document.getElementById("parentElement");
+        // parentDiv.insertBefore(span, sibling); // sibling 요소의 앞에 span태그를 추가한다.
+
+
+        // 버튼 클릭 시 input의 값을 p태그 안에 출력해주는 코드
+        const myBtn = document.querySelector("button");
+        const myP = document.querySelector("p");
+        const myInput = document.querySelector("input");
+
+        myBtn.addEventListener('click', function () {
+            myP.textContent = myInput.value;
+        });
+
+        // input 요소에 input 이벤트가 발생할 때마다 적용
+        // input 요소에 'input' 이벤트를 연결하면 실시간으로 값이 반영되게 만들 수도 있습니다. 
+        // input 요소에 값 입력 실시간으로 입력되고 있는 내용을 출력해줌
+        myInput.addEventListener('input', () => {
+            myP.textContent = myInput.value;
+        });
+
+        // html 태그를 직접 작성하여 반영 가능
+        // p 태그에 html 내용을 작성하여 반영 -> 더 직관적이라 많이 사용
+        myP.innerHTML = "<strong>I'm Strong!!</strong>";
+
+        // 속성 제어. style 속성을 사용하여 속성을 제어할 수 있다.
+        // myP.style.fontSize = "100px" // font 사이즈를 변경하는 예시로 이렇게 하면 태그내에 스타일이 적용-> 인라인 스타일로 적용됨
+
+        // insertAdjacentHTML : 요소 노드를 대상의 인접한 주변에 배치합니다.
+        const sayHi = document.querySelector('.sayHi');
+        sayHi.insertAdjacentHTML('beforebegin', '<span>안녕하세요 저는</span>');
+        sayHi.insertAdjacentHTML('afterbegin', '<span>재현입니다</span>');
+        sayHi.insertAdjacentHTML('beforeend', '<span>면접오시면</span>');
+        sayHi.insertAdjacentHTML('afterend', '<span>치킨사드릴게요</span>');
+
+
+        const cont = document.querySelector(".cont");
+        console.log(cont.firstElementChild);  // 첫번째 자식을 찾습니다.
+        console.log(cont.lastElementChild);   // 마지막 자식을 찾습니다.
+        console.log(cont.nextElementSibling); // 다음 형제요소를 찾습니다.
+        console.log(cont.previousSibling);    // 이전 형제노드를 찾습니다.
+        console.log(cont.children);           // 모든 자식요소를 찾습니다.
+        console.log(cont.childNodes);         // 모든 자식노드를 찾습니다.
+        console.log(cont.parentElement);      // 부모 요소를 찾습니다.
+        // 자기 자신부터 시작해 부모로 타고 올라가며 가장 가까운 cont 클래스 요소를 찾습니다. 단, 형제요소는 찾지 않습니다.
+        console.log(cont.querySelector('strong').closest('.cont').innerHTML);  
+    </script>
+</body>
+
+</html>
