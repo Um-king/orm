@@ -1,0 +1,33 @@
+<!-- 오른쪽 버튼 이벤트를 막고 헤당페이지에서 오른쪽 클릭을 제한합니다.’ 경고 띄우기 -->
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>오른쪽 클릭 방지</title>
+  </head>
+  <body>
+    <body onload="disableRightClick()">
+      <header>
+        <h1>오른쪽 클릭이 방지된 페이지</h1>
+        <p>이 페이지에서는 오른쪽 클릭 메뉴가 작동하지 않습니다.</p>
+      </header>
+      <main>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores,
+          ducimus placeat sit hic nisi molestiae debitis eaque esse blanditiis,
+          quod alias quibusdam obcaecati, fuga exercitationem ipsum fugiat
+          consequuntur mollitia facere!
+        </p>
+      </main>
+    </body>
+    <script>
+      function disableRightClick() {
+        document.addEventListener("contextmenu", function (event) {
+          event.preventDefault();
+          alert("오른쪽 클릭이 금지되어 있습니다.");
+        });
+      }
+    </script>
+  </body>
+</html>
