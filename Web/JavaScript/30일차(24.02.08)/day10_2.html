@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // fetch API 사용
+        function searchUser(userName, password) {
+            return fetch('users.json').then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                return response.json();
+
+
+            }).then((data) => { // 자바스크립트 객체가 들어온다 -> return 시 .json() / return 하면 then() 수행
+
+                // json 데이터와 일치하는지 검색하는 메소드
+                const info = data.user.find((item) => {
+                    return item.userName === userName && item.password === password
+                });
+
+                if (info) {
+                    return info;
+                } else {
+                    throw new Error('일치하는 유저가 없습니다!');
+                }
+            }).catch((msg) => {
+                console.error(msg);
+            });
+
+        };
+
+        function sayHi(user) {
+            return fetch('greetings.json').then((response) => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                return response.json();
+            }).then((data) => {
+                // json 데이터와 일치하는지 검색하는 메소드
+                const info = data.greetings.find((item) => {
+                    return item.userName === user.userName
+                });
+
+                if (info) {
+                    return info;
+                } else {
+                    throw new Error('일치하는 인사말 없습니다!');
+                    // console.error('일치하는 인사말 없습니다!');
+                }
+            }).catch((msg) => {
+                console.error(msg);
+            })
+        };
+
+        const userName = prompt('이름을 입력하세요');
+        const password = prompt('비밀번호를 입력하세요');
+        
+        searchUser(userName, password)
+            .then((info) => {
+                return sayHi(info);
+            }).then((info) => {
+                alert(info.greetings);
+            }).catch((msg) => {
+                console.error(msg);
+            });
+
+    </script>
+</body>
+
+</html>
