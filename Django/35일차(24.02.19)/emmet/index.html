@@ -1,0 +1,38 @@
+<!-- emmet 문법 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    h1
+    h1{hello}
+    h1{hello}+p{world}
+    table>tr>td+td+td
+    <!-- 꺽새(^): 나보다 하나 상위로 올라가는거 => 1계단 상위로 -->
+    table>tr>td+td+td^tr>td*3
+    table>tr>td*3^tr>td*3
+    table>(tr>td*3)*2
+    <!-- ^(꺽새)를 사용하면 code가 p와 병렬되게 되지 않고 p태그의 부모와 형제요소가 된다. -->
+    div>div>div+p^code
+    <!-- lorem: 아무 의미 없는 텍스트 문장 생성 -->
+    lorem 
+    <!-- 10개 단어 -->
+    lorem10
+    <!-- 10개 문장 -->
+    lorem*10
+    .class1
+    .class1.class2.class3
+    #one.class1.class2
+
+    <!-- 빈도가 낮은것 -->
+    p[data='1']
+    h${hello}*6 
+    p.className${hello}*6 
+    input:text
+    bq
+</body>
+</html>

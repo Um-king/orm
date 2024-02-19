@@ -1,0 +1,104 @@
+<!-- 이런식으로 랜딩 페이지 만들어서 판매해보기 -->
+<!-- 블로그 만드는 예제 -> 강사님 깃허브 블로그 (Weniv Vlog) -->
+
+<!-- 이런 규칙의 코드로 , 이런걸로 쇼핑몰 만들어서 판매할 수 있을듯
+이미지랑 타이틀 description에 각각 정보넣으면 되니깐 -> 해당 html 실행해보면 쇼핑몰 처럼 되어있음(사진, 텍스트) 
+이런식으로 html 만들어서 쇼핑몰 제작해보기
+반응형과 모바일까지 생각해서 구조를 잡아야한다.-->
+<!doctype html> 
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- m-6 : margin=6 -->
+    <div class="m-6 flex justify-between items-center">
+        <!-- text-2xl: 2xl 사이즈만큼 텍스트 크기 설정 -->
+        <div class="text-2xl font-bold">JEJU CODING</div>
+        <!-- gap-8: 8px 만큼 요소간 거리 두기 -->
+        <div class="flex gap-8">
+            <div>About</div>
+            <div>Blog</div>
+            <div>Contact</div>
+        </div>
+    </div>
+    <!-- grid를 활용하여 컬럼 3개를 지정, mt-6: magin-top=6 -->
+    <div class="m-20 grid grid-cols-3 gap-4">
+        <!-- y축으로 4만큼 공간을 만든다 -->
+        <!-- col-span-3로 첫번째 사진의 크기를 키움 , 한 행에 3개의 컬럼씩 반영하고 있으니 span-3을 설정하면 한행 전부의 크기를 사용하게 되고 첫번째 이미지가 커보이는 효과를 줄수 있다.-->
+        <div class="col-span-3 space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+        
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+
+        <div class="space-y-4"> 
+            <div>
+                <img class="rounded-xl" src="a.jpg" alt="">
+            </div>
+            <!-- p-1.5: padding=1.5 -->
+            <div class="mt-3 bg-blue-300 rounded p-1.5 inline-block font-bold text-white">category</div>
+            <div class="font-bold text-xl">title</div>
+            <div>description</div>
+        </div>
+    </div>
+</body>
+</html>
+
+<!-- Emmet 문법 -->

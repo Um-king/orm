@@ -1,0 +1,71 @@
+<!-- 그리드 예시 -->
+<!-- 그리드 참고 사이트: https://flexngrid.com/
+그리드 행, 열 통합하는 방법 디자인 사이트 : https://flexngrid.com/cheatsheet-grid/ -->
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <section>
+        <h2>grid</h2>
+        <div class="grid grid-cols-3 gap-4">
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+        </div>
+    </section>
+    <section>
+        <h2>grid 반응형</h2>
+        <!-- 컬럼 지정 -->
+        <!-- 최초 컬럼은 cols-1으로 반영되고 그다음 small 컬럼들은 cols-2fh qksdud -->
+        <div class="grid grid-cols-1 sm:grid-cols-2, md:grid-cols-4">
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+        </div>
+    </section>
+    <section>
+        <h2>grid row 지정</h2>
+        <!-- 로우 지정 -->
+        <div class="grid grid-cols-4 grid-rows-2">
+            <div class="col-span-2  border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+        </div>
+    </section>
+    <section>
+        <h2>grid row 지정</h2>
+        <div class="grid grid-cols-4 grid-rows-2">
+            <div class="row-span-2  border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+        </div>
+    </section>
+    <section>
+        <h2>grid row 지정</h2>
+        <div class="grid grid-cols-4 grid-rows-2">
+            <div class="row-span-2 col-span-2  border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+            <div class="border-2 border-blue-600">hello</div>
+        </div>
+    </section>
+</body>
+</html>
