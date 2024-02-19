@@ -1,0 +1,52 @@
+<!-- 부트스트랩 사용법 -->
+<!-- 부트스트랩은 이렇게 하나하나 작성하는 용도가 아니라 만들어진 템플릿을 구매해서 수정하는 용도 -->
+<!-- 부트스트랩 cdn 호출 // cdn 외부에서 호출하는 것 즉 외부의 부트스트랩을 호출하는 것 
+    출처: https://getbootstrap.com/docs/5.3/getting-started/introduction/
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+ -->
+
+ <!-- 부트 스트랩은 12컬럼으로 구성되어 있음 -> 따라서 12개의 column만큼 공간이 생김 -->
+ <!-- 따라서 실습을 하다보면 col-md-3이 4개로 구성되어있는데 3칸의 공간을 차지하고 4개가 있으니깐 12개의 column -->
+ <!-- 4칸짜리를 사용할거면 md-4 *3 하면되고 12개 column 크기가 벗어나면 줄바꿈이 된다. -->
+ <!-- md는 사이즈를 나타내고 어쨋든 md 뒤에 붙는 숫자 * x = 12 여야 한 행에 컬럼을 표현할 수 있음 -> 즉 한행에는 12개의 컬럼밖에 표현할 수 없다. (범위 벗어나면 줄바꿈) -->
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .col-md-3 {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 주제가 바뀔때 보통 container로 감싸준다. -->
+    <div class="container">
+        <div class="row">
+            <!-- col을 middle 사이즈로 3개씩 4번 정의 => 12개의 컬럼 설정 -->
+            <!-- 부트스트랩의 css를 위에서 호출하고 col-md-3이라는 css class를 호출한것 -> 12개의 컬럼을 만드는 정해져 있는 코드 -->
+            <div class="col-md-3">hello</div>
+            <div class="col-md-3">hello</div>
+            <div class="col-md-3">hello</div>
+            <div class="col-md-3">hello</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <!-- 4등분 -> 4의 크기로 3개의 컬럼을 생성 -> 12개 -->
+            <div class="col-md-4">hello</div>
+            <div class="col-md-4">hello</div>
+            <div class="col-md-4">hello</div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

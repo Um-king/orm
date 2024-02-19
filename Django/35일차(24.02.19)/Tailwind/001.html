@@ -1,0 +1,34 @@
+<!-- 모든 요소들의 스타일이 초기화 되어 있다. -->
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <h1 class="text-3xl font-bold underline">
+    Hello world!
+  </h1>
+  <!-- 엠이문법 : h1~h6까지 순차적으로 만들때 -->
+  <!-- h${hello world}*6 -->
+  <!-- 하지만 밑에 반영이 안됨 -> 이미 테일윈즈에 reset이 다 되어 있는 상태이기 때문에. 따라서 전부 스타일을 지정해줘야한다. -->
+  <!-- <h1>hello world</h1>
+  <h2>hello world</h2>
+  <h3>hello world</h3>
+  <h4>hello world</h4>
+  <h5>hello world</h5>
+  <h6>hello world</h6> -->
+
+  <!-- 테일윈즈는 모든 태그들의 고유 스타일이 reset되어있어서 전부 스타일을 지정해줘야한다. -->
+  <h1 class="text-2xl text-blue-300">hello world</h1>
+  <h2 class="text-2xl text-pink-600">hello world</h2>
+  
+  <!-- 텍스트를 기본 사이즈보다 조금 크게하고 색은 초록색으로 하는 tailwind code -->
+  <h3 class="text-2xl text-green-600">hello world</h3>
+  <h4>hello world</h4>
+  <h5>hello world</h5>
+  <h6>hello world</h6>
+
+</body>
+</html>

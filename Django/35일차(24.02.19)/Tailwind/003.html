@@ -1,0 +1,75 @@
+<!-- 공간에 색상 표시 예시 -->
+<!-- 테일윈드는 column 12개 상관없음 -> 본인이 설정한 수치만큼 
+사용자 커스텀으로 스타일 변경 가능 예시 추가 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tailwindcss</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <!-- 
+        tailwind는 2.x 버전은 css를 전부 구현되어 있어서 무거웠고 
+        지금 3.x는 js로 구현되어 있어 가볍습니다.
+        
+        디테일한 조정이 불가능하다 X => 조정이 가능합니다.
+    -->
+    <div class="grid grid-cols-5 gap-2">
+        <div class="bg-sky-50 aspect-square"></div>
+        <div class="bg-sky-100 aspect-square"></div>
+        <div class="bg-sky-200 aspect-square"></div>
+        <div class="bg-sky-300 aspect-square"></div>
+        <div class="bg-sky-400 aspect-square"></div>
+        <div class="bg-sky-500 aspect-square"></div>
+        <div class="bg-sky-600 aspect-square"></div>
+        <div class="bg-sky-700 aspect-square"></div>
+        <div class="bg-sky-800 aspect-square"></div>
+        <div class="bg-sky-900 aspect-square"></div>
+
+        <!-- 다른 값으로 커스텀 하는 것 -> 스타일 조정이 가능하다.
+        ex text-[#000000] 이런식으로 변경 가능 
+        이런 식으로 변경될 내용-[색상] 으로 변경 가능
+        bg-[#50d71e] 배경색상을 바꾼거고 사용자가 커스텀 한것 -->
+        <div class="bg-[#50d71e] aspect-square"></div>
+    </div>
+    <div class="grid grid-cols-10 gap-2">
+        <div class="bg-blue-50 aspect-square"></div>
+        <div class="bg-blue-100 aspect-square"></div>
+        <div class="bg-blue-200 aspect-square"></div>
+        <div class="bg-blue-300 aspect-square"></div>
+        <div class="bg-blue-400 aspect-square"></div>
+        <div class="bg-blue-500 aspect-square"></div>
+        <div class="bg-blue-600 aspect-square"></div>
+        <div class="bg-blue-700 aspect-square"></div>
+        <div class="bg-blue-800 aspect-square"></div>
+        <div class="bg-blue-900 aspect-square"></div>
+    </div>
+    <div class="grid grid-cols-10 gap-2">
+        <div class="bg-indigo-50 aspect-square"></div>
+        <div class="bg-indigo-100 aspect-square"></div>
+        <div class="bg-indigo-200 aspect-square"></div>
+        <div class="bg-indigo-300 aspect-square"></div>
+        <div class="bg-indigo-400 aspect-square"></div>
+        <div class="bg-indigo-500 aspect-square"></div>
+        <div class="bg-indigo-600 aspect-square"></div>
+        <div class="bg-indigo-700 aspect-square"></div>
+        <div class="bg-indigo-800 aspect-square"></div>
+        <div class="bg-indigo-900 aspect-square"></div>
+    </div>
+    <div class="grid grid-cols-10 gap-2">
+        <div class="bg-violet-50 aspect-square"></div>
+        <div class="bg-violet-100 aspect-square"></div>
+        <div class="bg-violet-200 aspect-square"></div>
+        <div class="bg-violet-300 aspect-square"></div>
+        <div class="bg-violet-400 aspect-square"></div>
+        <div class="bg-violet-500 aspect-square"></div>
+        <div class="bg-violet-600 aspect-square"></div>
+        <div class="bg-violet-700 aspect-square"></div>
+        <div class="bg-violet-800 aspect-square"></div>
+        <div class="bg-violet-900 aspect-square"></div>
+    </div>
+</body>
+</html>

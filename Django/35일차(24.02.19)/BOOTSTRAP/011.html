@@ -1,0 +1,41 @@
+<!-- 프로그래머스와 같은 UI 예시
+너무 좋은 UI
+
+이걸로 메모장 만들어서 나도 저관리웹사이트 만들어도 될것 같음-->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>토스트 UI</title>
+        <link
+            rel="stylesheet"
+            href="https://uicdn.toast.com/editor/latest/toastui-editor.min.css"
+        />
+        <script src="https://uicdn.toast.com/editor/latest/toastui-editor-all.min.js"></script>
+    </head>
+    <body>
+        <!-- 저장 버튼 기능 구현 시 보통 서버에 저장할때는 마크다운 언어로 가공한다음 그 자체를 서버에 저장 -->
+        <!-- 저장 버튼 구현할때 마크다운 언어로 변경 후 저장 -->
+        <!-- <form action="" method="post">
+            <input type="text" name="title" id="title" />
+            <input type="submit" value="제출" />
+        </form>
+        <div id="editor"></div>
+        <button>글쓰기</button> -->
+
+        <div id="editor"></div>
+        <script>
+            const Editor = toastui.Editor;
+
+            const editor = new Editor({
+                el: document.querySelector("#editor"),
+                height: "600px",
+                initialEditType: "markdown",
+                previewStyle: "vertical",
+            });
+
+            // editor.getHTML()
+            // editor.getMarkdown()    // 마크다운을 한 언어를 가져와서 보여주는 것. -> 마크다운 형태로 서버에 저장해야한다.
+        </script>
+    </body>
+</html>

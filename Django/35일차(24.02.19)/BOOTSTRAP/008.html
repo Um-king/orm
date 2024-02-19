@@ -1,0 +1,84 @@
+<!-- 이미 만들어진 부트스트랩 페이지의 소스코드를 그대로 복붙했을 때 동일하게 반영되는것을 확인하는 예시 -->
+
+<!-- 부트스트랩로 만들어진 웹페이지들은 소스코드가 전부 동일 => css class명이 동일하기 때문에 개발자도구에서 그대로 복붙해도 실행이됨(부트스트랩이 지원하는 css를 사용하고 css는 같으니깐) -->
+<!-- 따라서 부트스트랩으로 만들어진 탬플릿을 보고 마음에 드는게 있으면 개발자 도구에서 그대로 복붙하면 똑같이 출력됨 -->
+<!-- 따라서 이것저것 보다가 마음에 드는 페이지의 해당 코드만 그대로 가져오면 됨 => 그렇기 때문에 부트스트랩은 코딩하는게 아님 수정할 부분만 해당 코드만 가져와서 복붙 -->
+
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 1번 예시 -->
+    <!-- <header data-bs-theme="dark">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="#">Carousel</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                </li>
+              </ul>
+              <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+            </div>
+          </div>
+        </nav>
+    </header> -->
+
+    <!-- 2번 예시 -->
+    <div class="container">
+        <header class="border-bottom lh-1 py-3">
+          <div class="row flex-nowrap justify-content-between align-items-center">
+            <div class="col-4 pt-1">
+              <a class="link-secondary" href="#">Subscribe</a>
+            </div>
+            <div class="col-4 text-center">
+              <a class="blog-header-logo text-body-emphasis text-decoration-none" href="#">Large</a>
+            </div>
+            <div class="col-4 d-flex justify-content-end align-items-center">
+              <a class="link-secondary" href="#" aria-label="Search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="mx-3" role="img" viewBox="0 0 24 24"><title>Search</title><circle cx="10.5" cy="10.5" r="7.5"></circle><path d="M21 21l-5.2-5.2"></path></svg>
+              </a>
+              <a class="btn btn-sm btn-outline-secondary" href="#">Sign up</a>
+            </div>
+          </div>
+        </header>
+      
+        <div class="nav-scroller py-1 mb-3 border-bottom">
+          <nav class="nav nav-underline justify-content-between">
+            <a class="nav-item nav-link link-body-emphasis active" href="#">World</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">U.S.</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Technology</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Design</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Culture</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Business</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Politics</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Opinion</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Science</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Health</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Style</a>
+            <a class="nav-item nav-link link-body-emphasis" href="#">Travel</a>
+          </nav>
+        </div>
+      </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

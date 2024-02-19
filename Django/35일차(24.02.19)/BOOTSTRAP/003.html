@@ -1,0 +1,68 @@
+<!--참고: https://docs.emmet.io/cheat-sheet/  -->
+<!-- 엠이 문법: table>tr>td tab 누르면 자동으로 코드 생성됨 -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 
+        프론트엔드 개발 팀이 있는 곳에서는 부트스트랩을 자주 사용하지 않는다. 
+        1. 웹서비스 특색이 모두 같아진다.
+        2. 정교한 컨트롤이 어렵다.
+        3. 디자인 시안이 나와있는 경우 디자인을 반영하기 어렵다.
+        ---
+        어떨 때 사용하나요?
+        1. 개인프로젝트
+        2. 프론트엔드 개발 팀이 없는 곳
+        3. 빠르게 웹 서비스를 만들어야 하는 경우 (이 경우가 실무에서 생각보다 많다.)
+        4. 디자인 시안이 없는 경우
+        5. 중요도가 떨어지는 경우 (이 경우가 실무에서 생각보다 많다.)
+    -->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <!-- 엠이 문법 table>(tr>td{hello}*3)*5 -->
+
+                <!-- 자주 사용하는 테이블 class -->
+                <!-- <table class="table table-hover"> -->
+                <!-- <table class="table table-hover table-striped"> -->
+                <!-- <table class="table table-dark table-striped table-hover"> -->
+                <table class="table">
+                    <tr>
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hello</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hello</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hello</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hello</td>
+                    </tr>
+                    <tr>
+                        <td>hello</td>
+                        <td>hello</td>
+                        <td>hello</td>
+                    </tr>
+                </table>
+            </div> 
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
