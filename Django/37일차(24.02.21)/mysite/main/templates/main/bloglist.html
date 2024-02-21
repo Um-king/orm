@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bloglist</title>
+</head>
+<body>
+    <h1>bloglist 페이지 입니다.</h1>
+    <ul>
+        {# 주석입니다. #}
+        {# {%%}는 파이썬 문법을 쓰겠다. #}
+        {# {{x}}는 x라는 변수를 쓰겠다. #}
+        {# main > views.py에서 context = {"blogitems": blog_list} 선언했고 함수 정의 내에 해당 html에 context를 인자로 전달함 #}
+        {# 따라서 blogitems를 호출한 것은 blog_list객체를 사용하는 것#}
+        {% for i in blogitems %} 
+        <li><a href="/blog/{{i.id}}">{{ i.title }} {{i.id}}번째 게시물이야!</a></li>
+        {% endfor %} {# 반복문을 종료시켜야한다 #}
+    </ul>
+</body>
+</html>
