@@ -1,0 +1,14 @@
+{# input 태그를 사용하지 않아도 form 객체가 자동으로 input 태그를 생성해줌 #}
+{# forms.py에서 Form 객체를 호출했고 해당 객체에 자동으로 태그들이 작성되어 있어서 우리는 form 인스턴스만 호출하면 된다.(디자인도 수정할 수 있음) #}
+
+{# input 태그를 사용하여 입력란을 만들지 않고 form 인스턴스를 호출하여 입력란을 자동으로 생성#}
+
+<p style="color:red;">{{ error }}</p>
+<form action="{% url 'blog_update'%}" method="post">
+    {# 해킹 공격 방어를 위한 토큰입니다. #}
+    {% csrf_token %}
+
+    {{ form }} {# forms.py에 필드를 설정한 변수 개수만큼, 위젯은 데이터 타입으로해서 화면에 출력해준다 #}
+
+    <button type="submit">수정</button>
+</form>

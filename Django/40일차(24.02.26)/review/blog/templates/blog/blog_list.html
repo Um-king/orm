@@ -1,0 +1,13 @@
+<h1>게시판</h1>
+<form action="" method="get">
+    <input type="text" name="q" type="search">
+    <button type="submit">검색</button>
+</form>
+<ul>
+    {% for post in db %}
+    <li>
+        <a href="{% url 'blog_details' post.id %}">{{ post.title }}</a> {# url 'blog_details' post.id 이렇게 작성하면 url 경로가 blog_details/id값 이렇게 생성됨 #}
+        <p>{{ post.contents }}</p>
+    </li>
+    {% endfor %}
+</ul>
