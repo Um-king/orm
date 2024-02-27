@@ -1,0 +1,7 @@
+{% comment %} create와 update 둘다 여기서 수행 {% endcomment %}
+<h2>Create / Update</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">저장</button>
+</form>

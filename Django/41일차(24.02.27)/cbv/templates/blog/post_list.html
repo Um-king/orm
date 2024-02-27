@@ -1,0 +1,16 @@
+{% comment %} 
+context 객체를 보내지 않았지만 ListView가 기본적으로 제공해주는 변수를 사용하여 출력을 작성한다. 
+ListView 기본적으로 제공해주는 object_list 객체 사용하여 페이지를 작성한다.
+{% endcomment %}
+<h2>Post List</h2>
+<form action="" method="get">
+    <input name="q" type="text">
+    <button type="submit">검색</button>
+</form>
+<ul>
+    {% for post in object_list %}
+    <li>
+        <a href="{% url 'blog_details' post.pk %}">{{ post.title }}</a>
+    </li>
+    {% endfor %}
+</ul>

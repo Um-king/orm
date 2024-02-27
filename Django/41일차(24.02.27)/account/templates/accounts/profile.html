@@ -1,0 +1,15 @@
+<h1>개인 프로필 페이지</h1>
+<p>{{ user }}</p>
+
+<!-- 로그아웃 버튼 -->
+<form action="{% url 'logout' %}" method="post">
+  {% csrf_token %}
+  <input type="submit" value="로그아웃">
+</form>
+
+{% comment %} 
+views.py에서 request객체까지 같이 render함
+request에는 위의 user변수 사용처럼 user라는 변수의 값이 포함되어있다blog.contents
+
+즉 request 객체를 이용한것
+{% endcomment %}
