@@ -7,13 +7,15 @@ from django.views.generic import (
     UpdateView,
     DeleteView,
 )
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import Post
 from django.urls import reverse_lazy
 from django.http import HttpResponse
 from django.db.models import Q
 from django.shortcuts import render
 
-
+# LoginRequiredMixin : 믹스인을 사용하여 로그인한 사용자만 작업 가능하게 적용
+# UserPassesTestMixin : 내가 등록한 데이터가 맞는지 확인
 
 class PostList(ListView): 
     model = Post 
@@ -36,25 +38,33 @@ class PostDetail(DetailView):
     # template_name = "blog/내가_원하는_파일명.html" # 기본값: blog/post_detail.html
     
 
-class PostCreate(CreateView):
+class PostCreate(LoginRequiredMixin, CreateView):
     model = Post
     fields='__all__' 
     # template_name = "blog/내가_원하는_파일명.html" # 기본값: blog/post_form.html
     success_url=reverse_lazy('blog_list')
 
 
-class PostUpdate(UpdateView):
+class PostUpdate(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Post 
     fields='__all__'
     success_url=reverse_lazy('blog_list')
     # template_name = "blog/내가_원하는_파일명.html" # 기본값: blog/post_form.html
 
+    def test_func(self): # test_func이라는 함수명 자체가 필수 구현해야하는 함수
+        obj = self.get_object()
+        return obj.author == self.request.user 
+        # test_func() 메서드는 현재 로그인한 사용자(self.request.user)가 게시글의 작성자(post.author)와 동일한지를 확인합니다. 이 조건이 참이면 사용자는 게시글을 업데이트할 수 있고, 그렇지 않으면 기본적으로 403 Forbidden 오류 페이지를 반환하게 됩니다.
 
-class PostDelete(DeleteView):
+
+class PostDelete(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     model = Post 
     success_url=reverse_lazy('blog_list')
     # template_name = "blog/내가_원하는_파일명.html" # 기본값: blog/post_confirm_delete.html
 
+    def test_func(self): # test_func이라는 함수명 자체가 필수 구현해야하는 함수
+        obj = self.get_object()
+        return obj.author == self.request.user
 
 def tube_tag(request, tag):
     posts = Post.objects.filter(tags__name__iexact=tag)
